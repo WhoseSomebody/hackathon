@@ -1,0 +1,14 @@
+<div style="display: block">
+    <canvas baseChart
+            [datasets]="likes.data"
+            [options]="likes.options"
+            [labels]="likes.labels"
+            [chartType]="'bar'"></canvas>
+  </div>
+<div style="display: block">
+  <canvas baseChart width="400" height="400"
+          [data]="audience.data"
+          [labels]="audience.labels"
+          [chartType]="'pie'"
+          [options]="audience.options"></canvas>
+</div>
