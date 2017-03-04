@@ -1,3 +1,6 @@
+import { SubcategoryComponent } from './subcategory/subcategory.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoriesService } from './shared/categories.service';
 import { AuthService } from './shared/auth.service';
 import { MainNavbarComponent } from './main-navbar/main-navbar.component';
 import { mainCategories } from './shared/main-categories';
@@ -40,7 +43,12 @@ const APP_PROVIDERS = [
     provide: 'mainCategories',
     useValue: mainCategories
   },
-  AuthService
+  AuthService,
+  CategoriesService,
+  {
+    provide: 'apiName',
+    useValue: 'http://localhost:4000'
+  }
 ];
 
 type StoreType = {
@@ -59,7 +67,9 @@ type StoreType = {
     HomeComponent,
     NoContentComponent,
     FilteredSearchComponent,
-    MainNavbarComponent
+    MainNavbarComponent,
+    CategoryComponent,
+    SubcategoryComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,

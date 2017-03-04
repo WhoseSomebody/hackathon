@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class VideoPlayerComponent implements OnInit {
     player;
-    @Input() private videoId: string;
+    @Input() public videoId: string;
     
     constructor(private route: ActivatedRoute){
 
