@@ -1,3 +1,4 @@
+import { VideoService } from './shared/video.service';
 import { SubcategoryComponent } from './subcategory/subcategory.component';
 import { CategoryComponent } from './category/category.component';
 import { CategoriesService } from './shared/categories.service';
@@ -45,6 +46,7 @@ const APP_PROVIDERS = [
   },
   AuthService,
   CategoriesService,
+  VideoService,
   {
     provide: 'apiName',
     useValue: 'http://localhost:4000'
