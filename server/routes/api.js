@@ -3,6 +3,7 @@ const request = require('request');
 const mongoose = require('mongoose');
 const categorySchema = require('../schemas/category');
 const commentSchema = require('../schemas/comment');
+const markSchema = require('../schemas/marks');
 mongoose.connect('mongodb://SerG:strelok1996@ds117830.mlab.com:17830/1plus1tv');
 
 const News = mongoose.model('news', categorySchema);
@@ -136,7 +137,7 @@ router.get('/categories/:id/:idSubCategory', (req, res) => {
 router.get('/video/:id/comments', (req, res) => {
     Comment.findOne({videoid: req.params.id}, (err, comments) => {
         if (err) {
-            res.json(err)
+            res.json([])
         }
 
         res.json(comments.comments);
@@ -176,6 +177,10 @@ router.post('/video/:id/comments', (req, res) => {
             });
         }
     });
+});
+
+router.post('/video/:id/mark', (req, res) => {
+
 });
 
 module.exports = router;
