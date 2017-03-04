@@ -5,7 +5,14 @@ const categorySchema = new Schema({
     id: String ,
     title: String,
     subtitle: String,
-    image: String
+    image: String,
+    videolist:[
+        {
+            title: String,
+            videoid: String,
+            image: String
+        }
+    ]
 });
 
 module.exports = categorySchema;

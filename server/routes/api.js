@@ -20,7 +20,6 @@ router.get('/projects', (req, res) => {
     });
 });
 
-
 router.get('/categories/:id', (req, res) => {
     const catId = req.params.id;
     if(catId == '1') {
@@ -70,20 +69,19 @@ router.get('/categories/:id', (req, res) => {
 });
 
 router.get('/categories/:id/:idSubCategory', (req, res) => {
-    console.log("f dfd");
     const catId = req.params.id;
     const id = req.params.idSubCategory;
 
     if(catId == '1') {
-        News.find({id: id}, (err, news) => {
+        News.findOne({id: id}, (err, news) => {
             if(err) {
                 res.json(err)
             }
-
-            res.json(news);
+            
+            res.json(news.videolist);
         });
     } else if (catId == '2') {
-        Fun.find({}, (err, news) => {
+        Fun.find({id: id}, (err, news) => {
             if(err) {
                 res.json(err)
             }
@@ -92,7 +90,7 @@ router.get('/categories/:id/:idSubCategory', (req, res) => {
         });
 
     } else if (catId == '3') {
-        Family.find({}, (err, news) => {
+        Family.find({id: id}, (err, news) => {
             if(err) {
                 res.json(err)
             }
@@ -101,7 +99,7 @@ router.get('/categories/:id/:idSubCategory', (req, res) => {
         });
 
     } else if (catId == '4') {
-        Children.find({}, (err, news) => {
+        Children.find({id: id}, (err, news) => {
             if(err) {
                 res.json(err)
             }
@@ -110,7 +108,7 @@ router.get('/categories/:id/:idSubCategory', (req, res) => {
         });
 
     } else if (catId == '5') {
-        Show.find({}, (err, news) => {
+        Show.find({id: id}, (err, news) => {
             if(err) {
                 res.json(err)
             }
