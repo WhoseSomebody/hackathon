@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -8,16 +8,25 @@ import { ActivatedRoute, Params } from '@angular/router';
     styleUrls: ['video-player.component.styl']
 })
 export class VideoPlayerComponent implements OnInit {
-    private id: string;
+    player;
+    @Input() private videoId: string;
     
-    constructor(private route: ActivatedRoute) {
+    constructor(private route: ActivatedRoute){
 
     }
-    
+
     ngOnInit() {
-        this.route.params.subscribe( (params: Params) => {
-            this.id = params.id;
-        });
+        
+    }
+
+    savePlayer (player) {
+        this.player = player;
+        player.seekTo(10, false);
+        console.log('player instance', player)
+    }
+    
+    onStateChange(event){
+        console.log('player state', event.data);
     }
 
 

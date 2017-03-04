@@ -1,0 +1,7 @@
+nav
+  a(href="/").logo
+  .list-wrapper
+    ul
+      li(*ngFor="let cat of mainCategories")
+        | {{cat.name}}
+
