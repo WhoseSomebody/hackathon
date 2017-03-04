@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f74c9057-bcd1-4028-b72e-eac6781162c5" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/assets/img/main_menu/children.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/assets/img/main_menu/entertainment.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/assets/img/main_menu/family.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/assets/img/main_menu/login.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/assets/img/main_menu/news.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/assets/img/main_menu/reg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/assets/img/main_menu/search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/assets/img/main_menu/show.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/app/category/category.component.pug" afterPath="$PROJECT_DIR$/client/src/app/category/category.component.pug" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -77,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/client/src/app/category/category.component.pug">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -448,7 +455,7 @@
       <option name="presentableId" value="Default" />
       <updated>1488629874172</updated>
       <workItem from="1488629880866" duration="6705000" />
-      <workItem from="1488645473272" duration="21469000" />
+      <workItem from="1488645473272" duration="21517000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'dev' of https://github.com/hoopla-yolo-crew/hackathon into dev&#10;&#10;# Conflicts:&#10;#&#9;client/src/app/app.module.ts&#10;">
       <created>1488642261925</created>
@@ -478,15 +485,22 @@
       <option name="project" value="LOCAL" />
       <updated>1488667118278</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Header done.">
+      <created>1488667224034</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1488667224034</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28174000" />
+    <option name="totallyTimeSpent" value="28222000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="738" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20476545" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -496,7 +510,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.4973939" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5335516" sideWeight="0.4973939" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5335516" sideWeight="0.4973939" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -865,7 +879,7 @@
     <entry file="file://$PROJECT_DIR$/client/src/app/category/category.component.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
