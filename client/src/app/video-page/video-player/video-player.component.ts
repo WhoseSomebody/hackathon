@@ -9,10 +9,16 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class VideoPlayerComponent implements OnInit {
     player;
-    private id: string = 'qDuKsiwS5xw';
+    private id: string;
     
-    ngOnInit() {
+    constructor(private route: ActivatedRoute){
 
+    }
+
+    ngOnInit() {
+        this.route.params.subscribe(params => {
+            this.id = params.id;
+        });
     }
 
     savePlayer (player) {
