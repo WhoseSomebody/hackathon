@@ -3,11 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'category',
-    templateUrl: 'category.component.html',
+    templateUrl: 'category.component.pug',
     styleUrls: ['category.component.styl']
 })
 export class CategoryComponent implements OnInit {
-    
+
     private categoryId;
     public categories;
 
@@ -24,7 +24,7 @@ export class CategoryComponent implements OnInit {
             })
         });
      }
-     
+
      onSelect(subcategoryId){
         this.router.navigate(['category', this.categoryId, subcategoryId]);
      }
