@@ -10,5 +10,6 @@ export const ROUTES: Routes = [
   { path: 'home',  component: HomeComponent },
   { path: 'detail', loadChildren: './+detail#DetailModule'},
   { path: 'video', loadChildren: './video-page/video-page.module#VideoPageModule'},
+  { path: 'categories', loadChildren: './categories/categories.module#CategoriesModule'},
   { path: '**',    component: NoContentComponent },
 ];
