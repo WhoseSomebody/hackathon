@@ -7,4 +7,4 @@ to-do
 
 to-do for 1plus1 API
 
-1. Add search by category
+1. Add search by category (genre)
