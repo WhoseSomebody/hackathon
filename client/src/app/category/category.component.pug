@@ -1,6 +1,5 @@
-<div *ngIf="categories">
-    <div *ngFor="let category of categories" (click)="onSelect(category.id)">
-        <h2>{{category.title}}</h2>
-        <img [src]="category.image">
-    </div>
-</div>
+div(*ngIf="categories")
+  div(*ngFor="let category of categories" (click)="onSelect(category.id)")
+    div
+      h2 {{category.title}}
+      img([src]="category.image")
