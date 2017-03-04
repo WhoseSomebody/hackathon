@@ -1,5 +1,4 @@
 import { FilteredSearchComponent } from './categories/root-categories/filtered-search.component';
-import { CategoriesModule } from './categories/categories.module';
 import { VideoPageModule } from './video-page/video-page.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
