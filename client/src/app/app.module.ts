@@ -1,3 +1,4 @@
+import { AuthService } from './shared/auth.service';
 import { MainNavbarComponent } from './main-navbar/main-navbar.component';
 import { mainCategories } from './shared/main-categories';
 import { FilteredSearchComponent } from './filtered-search/filtered-search.component';
@@ -38,7 +39,8 @@ const APP_PROVIDERS = [
   {
     provide: 'mainCategories',
     useValue: mainCategories
-  }
+  },
+  AuthService
 ];
 
 type StoreType = {
