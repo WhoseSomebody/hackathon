@@ -1,3 +1,4 @@
+import { CategoriesModule } from './categories/categories.module';
 import { VideoPageModule } from './video-page/video-page.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -58,7 +59,8 @@ type StoreType = {
     HttpModule,
     MaterialModule.forRoot(),
     RouterModule.forRoot(ROUTES),
-    VideoPageModule
+    VideoPageModule,
+    CategoriesModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
