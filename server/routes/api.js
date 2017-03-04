@@ -13,6 +13,7 @@ const Show = mongoose.model('show', categorySchema);
 const Family = mongoose.model('family', categorySchema);
 
 const Comment = mongoose.model('comment', commentSchema);
+const Mark = mongoose.model('mark', commentSchema);
 
 router.get('/projects', (req, res) => {
 
@@ -137,7 +138,8 @@ router.get('/categories/:id/:idSubCategory', (req, res) => {
 router.get('/video/:id/comments', (req, res) => {
     Comment.findOne({videoid: req.params.id}, (err, comments) => {
         if (err) {
-            res.json([])
+            res.json([]);
+            return 0;
         }
 
         res.json(comments.comments);
