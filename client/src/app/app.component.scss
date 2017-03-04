@@ -27,6 +27,7 @@ $theme: mat-light-theme($primary, $accent);
 
 body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  margin: 0 ;
 
   // Helps fonts on OSX looks more consistent with other systems
   // Isn't currently in button styles due to performance concerns
@@ -66,3 +67,21 @@ body {
     font-size: 20px;
   }
 }
+
+nav {
+  .mat-input-underline {
+    border-color: white !important;
+
+    .mat-input-ripple {
+      background-color: #5dc631 !important;
+    }
+  }
+  .mat-input-placeholder.mat-focused {
+    color: #5dc631 !important;
+  }
+
+  input {
+    color: #585656 !important;
+  }
+}
+

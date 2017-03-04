@@ -1,0 +1,79 @@
+nav
+  background-color black
+  *
+    transition all linear 0.2s
+
+.list-wrapper
+  margin  0
+  height 50px
+  display inline-flex
+  align-items center
+  width 100%
+  .logo
+    width 60px
+    margin auto 30px auto 70px
+    display inline-block
+    flex-grow 0.5 !important
+    a
+      text-indent -9999px
+      width 60px
+      height 30px
+      background url("/assets/img/1+1_logo.svg")
+      background-size 60px 90px
+      background-repeat no-repeat
+      background-position 0
+  .item
+    display inline-block
+    padding 9px
+    flex-grow 0.3
+    &:nth-child(7)
+      flex-grow 4
+      margin-left 40px
+    &:last-child
+      display flex
+      color white
+      div
+        font-size 29px
+      a
+        margin 0 6px
+        &.login
+          background-image url("/assets/img/main_menu/login.png")
+          background-size 13px 15px
+        &.reg
+          background-image url("/assets/img/main_menu/reg.png")
+          background-size 15px 15px
+        background-repeat no-repeat
+        background-position 5px
+        height 33px
+        width 27px
+    a
+      display inline-block
+      filter saturate(.6)
+      img
+        max-height 30px
+        max-width 30px
+      &:hover
+        filter saturate(2)
+
+  .search
+    display inline-flex !important
+    margin-top -11px
+    background url("/assets/img/main_menu/search.png")
+    background-size 14px 15px
+    background-repeat no-repeat
+    background-position 184px
+    padding-right 30px
+    width 180px
+    input
+      border-top none
+      border-left none
+      border-right none
+      background-color transparent
+      height 30px
+      width 200px
+      margin-top -10px
+      border-bottom 1 solid white
+      &:focus
+        outline none
+        border-color #5dc631
+
