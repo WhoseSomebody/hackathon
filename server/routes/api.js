@@ -1,78 +1,88 @@
 const router = require('express').Router();
 const request = require('request');
+const mongoose = require('mongoose');
+const categorySchema = require('../schemas/category');
+mongoose.connect('mongodb://SerG:strelok1996@ds117830.mlab.com:17830/1plus1tv');
+
+const News = mongoose.model('news', categorySchema);
+const Fun = mongoose.model('fun', categorySchema);
+const Children = mongoose.model('children', categorySchema);
+const Show = mongoose.model('show', categorySchema);
+const Family = mongoose.model('family', categorySchema);
 
 router.get('/projects', (req, res) => {
-    const lang = "ua";
-    const reqURL = `https://api.ovva.tv/v2/${lang}/playlist`;
-    request(reqURL, (error, response, body) => {
-        if(error || response.statusCode != 200)
-            res.json(error);
-        else
-            res.json({data: JSON.parse(body)})
-    })
-});
+    Family.find({}, (err, news) => {
+        if(err) {
+            res.json(err)
+        }
 
-router.get('/categories', (req, res) => {
-    res.json({
-        data: [
-            {
-                id: 1,
-                name: "Новини"
-            },
-            {
-                id: 2,
-                name: "Розваги"
-            },
-            {
-                id: 3,
-                name: "Сім'я"
-            },
-            {
-                id: 4,
-                name: "Дітям"
-            },
-            {
-                id: 5,
-                name: "Шоу"
-            }
-        ]
-    })
+        res.json(news);
+    });
 });
 
 
-router.get('categories/:id', (req, res) => {
-    res.json({
-        data: [
-            {
-                idSubCategory: "45",
-                title: "Міняю жінку",
-                playlist_subtitle: "реаліті-шоу",
-                image: "https://images.ovva.tv/media/images/e13/b30/53f/e13b3053f4b4c9a41a956b267bd6b9ee.jpeg"
-            },
-            {
-                idSubCategory: "46",
-                playlist_title: "Панянка-селянка",
-                playlist_subtitle: "Реаліті-експеримент",
-                image: "https://images.ovva.tv/media/images/806/b72/460/806b72460bad749053733b7d79cdd3da.jpeg"
+router.get('/categories/:id', (req, res) => {
+    const catId = req.params.id;
+    if(catId == '1') {
+        News.find({}, (err, news) => {
+            if(err) {
+                res.json(err)
             }
-            ],
-    })
+
+            res.json(news);
+        });
+    } else if (catId == '2') {
+        Fun.find({}, (err, news) => {
+            if(err) {
+                res.json(err)
+            }
+
+            res.json(news);
+        });
+
+    } else if (catId == '3') {
+        Family.find({}, (err, news) => {
+            if(err) {
+                res.json(err)
+            }
+
+            res.json(news);
+        });
+
+    } else if (catId == '4') {
+        Children.find({}, (err, news) => {
+            if(err) {
+                res.json(err)
+            }
+
+            res.json(news);
+        });
+
+    } else if (catId == '5') {
+        Show.find({}, (err, news) => {
+            if(err) {
+                res.json(err)
+            }
+
+            res.json(news);
+        });
+    }
 });
 
 router.get('categories/:id/:idSubCategory', (req, res) => {
     res.json({
         data: [
             {
-                id: "45",
-                title: "Міняю жінку",
+                id: "68MVqpM_gw0",
+                title: "Міняю жінку 1 серія",
                 playlist_subtitle: "реаліті-шоу",
                 image: "https://images.ovva.tv/media/images/e13/b30/53f/e13b3053f4b4c9a41a956b267bd6b9ee.jpeg"
             },
             {
-                id: "46",
-                playlist_title: "Панянка-селянка",
-                playlist_subtitle: "Реаліті-експеримент",
-                image: "https://images.ovva.tv/media/images/806/b72/460/806b72460bad749053733b7d79cdd3da.jpeg"
+                id: "68MVqpM_gw0",
+                title: "Міняю жінку 2 серія",
+                playlist_subtitle: "реаліті-шоу",
+                image: "https://images.ovva.tv/media/images/e13/b30/53f/e13b3053f4b4c9a41a956b267bd6b9ee.jpeg"
             }
         ],
     })
@@ -81,9 +91,299 @@ router.get('categories/:id/:idSubCategory', (req, res) => {
 router.get('/video/:id', (req, res) => {
     res.json({
         data: {
-            id: "68MVqpM_gw0"
+            like: "6"
         }
     })
 });
+
+const NWS = [
+    '48',
+    '172',
+    '326',
+    '689',
+    '659',
+    '945',
+    '719',
+    '704',
+    '4438',
+    '4500',
+    '5252',
+    '4844',
+    '5416',
+    '5379',
+    '4466',
+    '5596',
+    '5751',
+    '6110',
+    '8667',
+    '8667',
+    '8501',
+    '8501',
+    '8875',
+    '9142',
+    '9270',
+    '9106',
+    '9106',
+    '9507',
+    '10389',
+    '5315',
+    '5312',
+    '5316',
+    '5314',
+    '10765',
+    '10772',
+    '10402',
+    '11366',
+    '11592',
+    '11651',
+    '12679',
+    '13313',
+    '9960',
+    '9952',
+    '9952',
+    '9957',
+    '18113',
+    '18484',
+    '28121',
+    '29256'
+];
+
+const FUN = [ '326',
+    '2992',
+    '4438',
+    '5252',
+    '5367',
+    '5416',
+    '6899',
+    '7160',
+    '6231',
+    '8446',
+    '9270',
+    '11073',
+    '12408',
+    '12194',
+    '12417',
+    '12679',
+    '13228' ];
+
+const FAM =
+    [ '165',
+        '93',
+        '96',
+        '96',
+        '51',
+        '47',
+        '170',
+        '169',
+        '169',
+        '172',
+        '232',
+        '329',
+        '331',
+        '331',
+        '331',
+        '512',
+        '512',
+        '229',
+        '659',
+        '472',
+        '472',
+        '946',
+        '1026',
+        '960',
+        '3093',
+        '3093',
+        '3467',
+        '3467',
+        '3600',
+        '3600',
+        '4606',
+        '4601',
+        '5304',
+        '5306',
+        '5305',
+        '5332',
+        '5349',
+        '5352',
+        '5367',
+        '5435',
+        '5435',
+        '5511',
+        '6230',
+        '7160',
+        '6934',
+        '7011',
+        '7510',
+        '7510',
+        '7514',
+        '7465',
+        '7465',
+        '8781',
+        '8781',
+        '9290',
+        '9344',
+        '9344',
+        '9270',
+        '9213',
+        '9106',
+        '9952',
+        '9954',
+        '9886',
+        '9879',
+        '9879',
+        '9957',
+        '9996',
+        '9960',
+        '10765',
+        '10772',
+        '10772',
+        '10402',
+        '11044',
+        '11033',
+        '11543',
+        '11366',
+        '11439',
+        '12202',
+        '12237',
+        '12237',
+        '12314',
+        '12314',
+        '12679',
+        '12515',
+        '13342',
+        '13517',
+        '13353',
+        '13238',
+        '13462',
+        '16403',
+        '15558',
+        '15558',
+        '16436',
+        '16436',
+        '16599',
+        '16599',
+        '17331',
+        '17331',
+        '17079',
+        '18474',
+        '17596'
+    ];
+
+let show = [ '45',
+    '46',
+    '46',
+    '93',
+    '51',
+    '165',
+    '170',
+    '192',
+    '192',
+    '172',
+    '229',
+    '229',
+    '232',
+    '232',
+    '276',
+    '466',
+    '466',
+    '329',
+    '326',
+    '946',
+    '1029',
+    '960',
+    '1033',
+    '4018',
+    '4438',
+    '4459',
+    '4045',
+    '5305',
+    '5304',
+    '4601',
+    '4601',
+    '5263',
+    '5306',
+    '5330',
+    '5327',
+    '5335',
+    '3093',
+    '5367',
+    '5416',
+    '5520',
+    '5511',
+    '5589',
+    '5535',
+    '6230',
+    '5751',
+    '5596',
+    '6110',
+    '6231',
+    '7160',
+    '6934',
+    '7018',
+    '7510',
+    '8446',
+    '7514',
+    '8893',
+    '9270',
+    '9290',
+    '9577',
+    '9359',
+    '10499',
+    '12633',
+    '12462',
+    '13313',
+    '13517',
+    '14917',
+    '15417',
+    '15413',
+    '15197',
+    '14802',
+    '17331',
+    '16599',
+    '16403',
+    '16403',
+    '15412',
+    '15558',
+    '16216',
+    '17134',
+    '21543',
+    '21642',
+    '25351',
+    '26846',
+    '29276',
+    '30302',
+    '30906',
+    '31261',
+    '31131',
+    '33602' ];
+
+let child =
+    [ '311',
+        '2228',
+        '2016',
+        '1032',
+        '2962',
+        '3008',
+        '5321',
+        '5319',
+        '6616',
+        '6578',
+        '6934',
+        '10389',
+        '21842',
+        '22832',
+        '23337',
+        '23132',
+        '23146',
+        '23902',
+        '23347',
+        '24347',
+        '28706',
+        '27986',
+        '31506',
+        '31621' ];
+
+
+
 
 module.exports = router;
