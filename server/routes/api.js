@@ -13,7 +13,7 @@ const Show = mongoose.model('show', categorySchema);
 const Family = mongoose.model('family', categorySchema);
 
 const Comment = mongoose.model('comment', commentSchema);
-const Mark = mongoose.model('mark', commentSchema);
+const Mark = mongoose.model('mark', markSchema);
 
 router.get('/projects', (req, res) => {
 
@@ -182,7 +182,35 @@ router.post('/video/:id/comments', (req, res) => {
 });
 
 router.post('/video/:id/mark', (req, res) => {
+    Mark.findOne({videoid: req.params.id}, (err, mark) => {
+        if(mark) {
+            if(req.body.like)
+                mark.likes++;
+            else {
+                mark.dislikes++;
+            }
+            mark.save();
+        } else {
+            mark = new Mark({
+                videoid: req.params.id,
+                likes: 0,
+                dislikes: 0
+            });
+            if(req.body.like)
+                mark.likes++;
+            else {
+                mark.dislikes++;
+            }
+            mark.save();
+        }
+        res.json(mark);
+    })
+});
 
+router.get('/video/:id/mark', (req, res) => {
+    Mark.findOne({videoid: req.params.id}, (err, mark) => {
+        res.json(mark ? mark : []);
+    })
 });
 
 module.exports = router;
