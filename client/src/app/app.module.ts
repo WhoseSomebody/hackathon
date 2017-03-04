@@ -50,7 +50,6 @@ type StoreType = {
   declarations: [
     AppComponent,
     HomeComponent,
-    VideoPageModule,
     NoContentComponent
   ],
   imports: [ // import Angular's modules
@@ -58,7 +57,8 @@ type StoreType = {
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    VideoPageModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
