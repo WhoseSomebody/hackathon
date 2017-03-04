@@ -3,7 +3,7 @@ nav
     .logo.item
       a(href="/")
     .item(*ngFor="let cat of mainCategories")
-      a(title="{{cat.name}}" href="{{cat.url}}")
+      a(title="{{cat.name}}" href="javascript:void(0)" (click)="onSelect(cat.id)")
         img(src="{{cat.img_link}}")
     .item
       .search

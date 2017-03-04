@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import {Component, Inject} from "@angular/core";
 
 @Component({
@@ -6,7 +7,11 @@ import {Component, Inject} from "@angular/core";
   styleUrls: ['./main-navbar.styl']
 })
 export class MainNavbarComponent {
-  constructor(@Inject('mainCategories') private mainCategories) {
+  constructor(@Inject('mainCategories') private mainCategories, private router: Router) {
     console.log(mainCategories);
+  }
+
+  onSelect(id){
+    this.router.navigate(['category', id]);
   }
 }
