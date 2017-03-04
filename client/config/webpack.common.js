@@ -189,7 +189,7 @@ module.exports = function (options) {
          */
          { 
             test: /\.(pug|jade)$/,
-            loader: 'pug-html-loader'
+            loader: 'pug-ng-html-loader'
           },
         /* 
          * File loader for supporting images, for example, in CSS files.
