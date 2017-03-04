@@ -1,3 +1,4 @@
+import { FilteredSearchComponent } from './filtered-search/filtered-search.component';
 import { VideoPageModule } from './video-page/video-page.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -30,7 +31,6 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { NoContentComponent } from './no-content';
-import {MainNavbarComponent} from "./main-navbar/main-navbar.component";
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -52,7 +52,7 @@ type StoreType = {
     AppComponent,
     HomeComponent,
     NoContentComponent,
-    MainNavbarComponent
+    FilteredSearchComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
