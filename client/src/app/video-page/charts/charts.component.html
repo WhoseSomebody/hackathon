@@ -1,12 +1,10 @@
-<div style="display: block;">
-    <canvas baseChart width="400" height="400"
-                [datasets]="userViews.data"
-                [labels]="userViews.times"
-                [colors]="userViews.colors"
-                [options]="userViews.options"
-                [legend]="false"
-                [chartType]="'line'"></canvas>
-</div>
+<div style="display: block">
+    <canvas baseChart
+            [datasets]="likes.data"
+            [options]="likes.options"
+            [labels]="likes.labels"
+            [chartType]="'bar'"></canvas>
+  </div>
 <div style="display: block">
   <canvas baseChart width="400" height="400"
           [data]="audience.data"

@@ -7,24 +7,37 @@ declare var Chart: any;
 })
 export class ChartsComponent implements OnInit {
     
-    public userViews = {
-        data: [{
-            data: [10, 15, 30, 20, 40, 20, 10, 90, 100, 90],
-            label: 'Перегляди за останній час'
-        }],
-        times: [ 'now', '-5', '-10', '-15', '-20', '-25', '-30', '-35', '-40', '-45'].reverse(),
-        colors: [
-            { // grey
-            backgroundColor: 'rgba(148,159,177,0.2)',
-            borderColor: 'rgba(148,159,177,1)',
-            pointBackgroundColor: 'rgba(148,159,177,1)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    public likes = {
+        data: [
+            {
+                data: [10],
+                label: 'Лайки'
+            },
+            {
+                data: [5],
+                label: 'Дизлайки'
             }
         ],
+        labels: [ 'Лайки/Дизлайки'],
         options: {
-            responsive: false
+            responsive: false,
+            animation: {
+                duration: 0,
+                onComplete: function () {
+                    // render the value of the chart above the bar
+                    var ctx = this.chart.ctx;
+                    ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+                    ctx.fillStyle = this.chart.config.options.defaultFontColor;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+                    this.data.datasets.forEach(function (dataset) {
+                        for (var i = 0; i < dataset.data.length; i++) {
+                            var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                            ctx.fillText(dataset.data[i], model.x, model.y - 5);
+                        }
+                    });
+                }
+            }
         }
     };
 
