@@ -141,8 +141,8 @@ router.get('/video/:id/comments', (req, res) => {
             res.json([]);
             return 0;
         }
-
-        res.json(comments.comments);
+        const comm = comments ? comments.comments : [];
+        res.json(comm);
     })
 });
 
