@@ -9,5 +9,6 @@ export const ROUTES: Routes = [
   { path: '',      component: HomeComponent },
   { path: 'home',  component: HomeComponent },
   { path: 'detail', loadChildren: './+detail#DetailModule'},
+  { path: 'video', loadChildren: './video-page/video-page.module#VideoPageModule'},
   { path: '**',    component: NoContentComponent },
 ];

@@ -1,3 +1,4 @@
+import { VideoPageModule } from './video-page/video-page.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -49,6 +50,7 @@ type StoreType = {
   declarations: [
     AppComponent,
     HomeComponent,
+    VideoPageModule,
     NoContentComponent
   ],
   imports: [ // import Angular's modules
