@@ -1,3 +1,4 @@
+import { FilteredSearchComponent } from './categories/root-categories/filtered-search.component';
 import { CategoriesModule } from './categories/categories.module';
 import { VideoPageModule } from './video-page/video-page.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -51,7 +52,8 @@ type StoreType = {
   declarations: [
     AppComponent,
     HomeComponent,
-    NoContentComponent
+    NoContentComponent,
+    FilteredSearchComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -59,8 +61,7 @@ type StoreType = {
     HttpModule,
     MaterialModule.forRoot(),
     RouterModule.forRoot(ROUTES),
-    VideoPageModule,
-    CategoriesModule
+    VideoPageModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
