@@ -4,7 +4,8 @@ import { AuthService } from './../../shared/auth.service';
 import { Component, OnInit, Input } from '@angular/core';
 @Component({
     selector: 'comments',
-    templateUrl: 'comments.component.html'
+    templateUrl: 'comments.component.pug',
+    styleUrls:['comments.component.styl']
 })
 export class CommentsComponent implements OnInit {
     

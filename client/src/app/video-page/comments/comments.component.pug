@@ -1,8 +1,13 @@
-<div *ngIf="comments">
-    <li *ngFor="let comment of comments">
-        {{comment.userName}}: {{comment.comment}}
-    </li>
+div.comments(*ngIf='comments')
+    md-list
+        md-list-item(*ngFor='let comment of comments')
+            span.user
+                | {{comment.userName}}:
+            span.text
+                | {{comment.comment}}
+.add-new
+    md-input-container.input-container(dividerColor='accent')
+        input(mdInput placeholder="Введіть коментар" type='text', [value]='newComment', (input)='newComment = $event.target.value')
 
-    <input type="text" [value]="newComment" (input)="newComment = $event.target.value">
-    <button (click)="addComment(newComment)">Додати коментар</button>
-</div>
+    button.send(md-fab (click)='addComment(newComment)')
+        md-icon().ico send

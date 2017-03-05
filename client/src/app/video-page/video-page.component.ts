@@ -7,10 +7,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 @Component({
     selector: 'video-page',
-    templateUrl: 'video-page.component.html'
+    templateUrl: 'video-page.component.pug',
+    styleUrls:['video-page.component.styl']
 })
 export class VideoPageComponent implements OnInit {
-    
+
     private videoId: string;
     @ViewChild(VideoPlayerComponent) videoPlayer: VideoPlayerComponent;
     @ViewChild(AddMomentComponent) addMoment: AddMomentComponent;
@@ -20,7 +21,7 @@ export class VideoPageComponent implements OnInit {
         private videoService: VideoService
     ) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.route.params.subscribe(params => {
             this.videoId = params.id;
             this.videoService.startWatchingVideo(this.videoId, this.authService.userData).subscribe(data => {
@@ -40,7 +41,7 @@ export class VideoPageComponent implements OnInit {
             this.addMoment.pauseTime = player.getCurrentTime();
             this.addMoment.videoPaused = true;
         }
-        
+
     }
 }
 =======
