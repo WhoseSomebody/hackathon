@@ -1,3 +1,4 @@
+import { CategoriesService } from './../shared/categories.service';
 import { AddMomentComponent } from './add-moment/add-moment.component';
 import { MomentsComponent } from './moments/moments.component';
 import { RateComponent } from './rate/rate.component';
@@ -28,6 +29,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
         MomentsComponent,
         AddMomentComponent
     ],
-    providers: [],
+    providers: [
+        CategoriesService
+    ],
 })
 export class VideoPageModule { }

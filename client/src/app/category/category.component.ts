@@ -26,6 +26,7 @@ export class CategoryComponent implements OnInit {
      }
 
      onSelect(subcategoryId){
+        this.categoryService.currentSubCategory = subcategoryId;
         this.router.navigate(['category', this.categoryId, subcategoryId]);
      }
 }
