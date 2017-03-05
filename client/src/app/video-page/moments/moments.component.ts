@@ -22,7 +22,7 @@ export class MomentsComponent implements OnInit {
             return this.videoService.getMoments(this.videoId);
         }).subscribe(moments$ => {
             moments$.subscribe( moments => {
-                this.moments = moments;
+                this.moments = moments.moments;
             });
         });
      }

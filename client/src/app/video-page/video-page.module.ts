@@ -1,3 +1,4 @@
+import { AddMomentComponent } from './add-moment/add-moment.component';
 import { MomentsComponent } from './moments/moments.component';
 import { RateComponent } from './rate/rate.component';
 import { ChartsComponent } from './charts/charts.component';
@@ -24,7 +25,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
         CommentsComponent,
         ChartsComponent,
         RateComponent,
-        MomentsComponent
+        MomentsComponent,
+        AddMomentComponent
     ],
     providers: [],
 })

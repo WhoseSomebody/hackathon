@@ -1,5 +1,6 @@
-<video-player [videoId]="videoId"></video-player>
+<video-player [videoId]="videoId" (videoChangedState)="videoChangedState($event)"></video-player>
 <comments [videoId]="videoId"></comments>
+<add-moment [videoId]="videoId"></add-moment>
 <moments [videoId]="videoId" (momentSelected)="momentSelected($event)"></moments>
 <rate [videoId]="videoId"></rate>
 <charts [videoId]="videoId"></charts>
