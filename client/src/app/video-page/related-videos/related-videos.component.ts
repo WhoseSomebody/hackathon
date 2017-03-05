@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
     templateUrl: 'related-videos.component.html',
     styleUrls: ['related-videos.component.styl']
 })
-export class FeatureComponent implements OnInit {
+export class RelatedVideosComponent implements OnInit {
     @Input() public videoId: string;
 
     public subcategoryId;

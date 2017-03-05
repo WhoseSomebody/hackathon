@@ -66,7 +66,7 @@ export class VideoService {
     }
 
     getRelatedVideos(videoId, subcategoryId) {
-        return this.http.get(`${this.apiName}/api/video/${videoId}/moments`).map(data => {
+        return this.http.get(`${this.apiName}/api/proposals/${subcategoryId}`).map(data => {
             return JSON.parse(data['_body']);
         });
     }
