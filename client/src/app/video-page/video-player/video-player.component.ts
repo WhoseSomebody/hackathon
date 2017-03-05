@@ -29,5 +29,12 @@ export class VideoPlayerComponent implements OnInit {
         console.log('player state', event.data);
     }
 
+    toMoment(moment) {
+        this.player.stopVideo();
+        this.player.seekTo(moment.time, false);
+        this.player.playVideo();
+    }
+
+
 
 }
