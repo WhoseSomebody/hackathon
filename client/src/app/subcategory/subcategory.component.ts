@@ -4,21 +4,21 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'subcategory',
-    templateUrl: 'subcategory.component.html',
+    templateUrl: 'subcategory.component.pug',
     styleUrls: ['subcategory.component.styl']
 })
-export class SubcategoryComponent implements OnInit {    
-    
+export class SubcategoryComponent implements OnInit {
+
     private subcategoryId;
     private categoryId;
-    public videos; 
+    public videos;
     constructor(
         private router: Router,
         private route: ActivatedRoute,
         private categoriesService: CategoriesService
     ) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.route.params.subscribe(params => {
             this.subcategoryId = params.subcategoryId;
             this.categoryId = params.categoryId;

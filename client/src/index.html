@@ -17,7 +17,11 @@
   <!-- base url -->
   <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-  <script src="https://use.fontawesome.com/460b3738bc.js"></script>
+  <style>
+    body {
+      background-color: #333;
+    }
+  </style>
 </head>
 
 <body>
@@ -32,6 +36,6 @@
   <script src="/webpack-dev-server.js"></script>
   <% } %>
 
-  
+
 </body>
 </html>

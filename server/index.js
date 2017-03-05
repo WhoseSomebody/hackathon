@@ -68,8 +68,8 @@ app.use('/', routes);
 
 app.post('/register', (req, res) => {
     const user = new User({
-        username: req.username,
-        password: req.password
+        username: req.body.username,
+        password: req.body.password
     });
 
     user.save(err => {

@@ -1,0 +1,5 @@
+div.categories(*ngIf="videos")
+  div.category(*ngFor="let video of videos" (click)="onSelect(video.videoid)")
+    img([src]="video.image")
+    .title(title="{{video.title}}")
+      span {{video.title}}
