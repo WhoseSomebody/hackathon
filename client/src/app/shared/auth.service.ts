@@ -4,7 +4,7 @@ export class AuthService {
 
     userData ={
         userId: 'guest',
-        userName: 'guest',
+        userName: 'Гість',
         sex: 'guest'
     };
     

@@ -1,0 +1,6 @@
+div.add-mom(*ngIf="videoPaused")
+    md-input-container.input-container(dividerColor='accent')
+        input.input-container(mdInput placeholder="Введіть назву моменту" type='text' [value]="momentName" (input)="momentName = $event.target.value")
+
+    button.send(md-fab (click)="addMoment(momentName)")
+        md-icon().ico add

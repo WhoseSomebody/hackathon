@@ -1,3 +1,4 @@
+import {CommentsComponent} from "./comments/comments.component";
 <<<<<<< HEAD
 import { AddMomentComponent } from './add-moment/add-moment.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
@@ -11,10 +12,15 @@ import { Component, OnInit, ViewChild } from '@angular/core';
     styleUrls:['video-page.component.styl']
 })
 export class VideoPageComponent implements OnInit {
-
+    public activity: string = "comments";
     private videoId: string;
     @ViewChild(VideoPlayerComponent) videoPlayer: VideoPlayerComponent;
     @ViewChild(AddMomentComponent) addMoment: AddMomentComponent;
+    public lastComment= {
+        userId: 'guest',
+        userName: 'Гість',
+        comment: ''
+    };
     constructor(
         private route: ActivatedRoute,
         private authService: AuthService,
@@ -28,6 +34,10 @@ export class VideoPageComponent implements OnInit {
                 console.log('Started watching video' + this.videoId);
             });
         });
+    }
+
+    commentAdded(comment) {
+        this.lastComment = comment;
     }
 
     momentSelected(moment) {

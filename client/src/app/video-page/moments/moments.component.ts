@@ -6,7 +6,7 @@ import { Component, OnInit, ViewChild, Output } from '@angular/core';
 
 @Component({
     selector: 'moments',
-    templateUrl: 'moments.component.html',
+    templateUrl: 'moments.component.pug',
     styleUrls: ['moments.component.styl']
 })
 export class MomentsComponent implements OnInit {
@@ -14,8 +14,10 @@ export class MomentsComponent implements OnInit {
     @Output() public momentSelected = new EventEmitter();
     @Input() private videoId: string;
     public moments;
-    
-    constructor( private videoService: VideoService ) { }
+    Math: any;
+    constructor( private videoService: VideoService ) {
+        this.Math = Math;
+    }
 
     ngOnInit() {
         IntervalObservable.create(1000).map(() => {

@@ -10,7 +10,7 @@ import { DataResolver } from './app.resolver';
 export const ROUTES: Routes = [
   { 
     path: '',      
-    redirectTo: 'home', 
+    redirectTo: 'category/1',
     pathMatch: 'full' 
   },
   { 

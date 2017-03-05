@@ -6,16 +6,16 @@
             span.hamburger.hamburger-1
             span.hamburger.hamburger-2
             span.hamburger.hamburger-3
-        a.menu-item(href='#' title="Коментарі")
+        a.menu-item((click)="activity='comments'" href="javascript:void(0)" title="Коментарі")
             i.fa.fa-comments
-        a.menu-item(href='#' tittle="Фрагменти")
+        a.menu-item((click)="activity='moments'" href="javascript:void(0)" title="Фрагменти")
             i.fa.fa-puzzle-piece
-        a.menu-item(href='#' title="Рекомендації")
+        a.menu-item((click)="activity='recommendations'" href="javascript:void(0)" title="Рекомендації")
             i.fa.fa-hand-o-right
             i.fa.fa-caret-square-o-right
-        a.menu-item(href='#' title="Улюблені")
+        a.menu-item((click)="activity='rates'" href="javascript:void(0)" title="Оцінити")
             i.fa.fa-star
-        a.menu-item(href='#' title="Аналітика")
+        a.menu-item((click)="activity='charts'" href="javascript:void(0)" title="Аналітика")
             i.fa.fa-bar-chart
 
     // filters
@@ -34,10 +34,13 @@
                     fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
                         fecomposite(in2='goo', in='SourceGraphic', result='mix')
 video-player([videoId]="videoId" (videoChangedState)="videoChangedState($event)")
-.right-menu
-    add-moment([videoId]="videoId").hidden
-    moments([videoId]="videoId" (momentSelected) = "momentSelected($event)").hidden
-    comments([videoId]="videoId")
-    rate([videoId]="videoId").hidden
-    charts([videoId]="videoId").hidden
-
+div.last-comment
+    span.name {{lastComment.userName}}:
+    span.text   {{lastComment.comment}}
+add-moment.add-moment([videoId]="videoId")
+.right-menu()
+    moments([videoId]="videoId" (momentSelected) = "momentSelected($event)" *ngIf="activity === 'moments'")
+    comments([videoId]="videoId" *ngIf="activity === 'comments'" (commentAdded)="commentAdded($event)")
+    rate([videoId]="videoId" *ngIf="activity === 'rates'")
+    charts([videoId]="videoId" *ngIf="activity === 'charts'")
+    related-videos([videoId]="videoId" *ngIf="activity === 'recommendations'")

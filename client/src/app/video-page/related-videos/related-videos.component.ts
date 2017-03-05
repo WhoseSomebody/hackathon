@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'related-videos',
-    templateUrl: 'related-videos.component.html',
+    templateUrl: 'related-videos.component.pug',
     styleUrls: ['related-videos.component.styl']
 })
 export class RelatedVideosComponent implements OnInit {

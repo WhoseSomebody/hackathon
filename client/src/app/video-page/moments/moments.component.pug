@@ -1,0 +1,8 @@
+h2 Моменти:
+.moments(*ngIf="moments")
+    md-list
+        md-list-item(*ngFor="let moment of moments" (click)="onMomentSelect(moment)")
+            span.time
+                | {{this.Math.round(moment.time/60)}}:{{this.Math.round(moment.time%60)}}
+            span.title
+                | {{moment.title}}

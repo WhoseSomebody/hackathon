@@ -1,7 +1,7 @@
 import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
 import { VideoService } from './../../shared/video.service';
 import { AuthService } from './../../shared/auth.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 @Component({
     selector: 'comments',
     templateUrl: 'comments.component.pug',
@@ -10,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CommentsComponent implements OnInit {
     
     @Input() private videoId: string;
-
+    @Output() public commentAdded = new EventEmitter();
     private comments;
     private newComment = '';
 
@@ -22,6 +22,9 @@ export class CommentsComponent implements OnInit {
         }).subscribe(comments$ => {
             comments$.subscribe( comments => {
                 this.comments = comments;
+                if(comments.length > 0){
+                    this.commentAdded.next(comments[comments.length - 1]);
+                }
             });
         });
      }
@@ -31,7 +34,8 @@ export class CommentsComponent implements OnInit {
             userId: this.authService.userData.userId,
             userName: this.authService.userData.userName,
             comment: newComment
-        }
+        };
+        this.newComment = '';
         this.videoService.addComment(this.videoId, comment).subscribe(data => {
             console.log("Added");
         });

@@ -22,7 +22,7 @@ export class VideoPlayerComponent implements OnInit {
     savePlayer (player) {
         this.player = player;
         // player.seekTo(10, false);
-        player.stop();
+        player.stopVideo();
         console.log('player instance', player)
     }
 
