@@ -1,5 +1,4 @@
-
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -10,6 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class VideoPlayerComponent implements OnInit {
     player;
     @Input() public videoId: string;
+    @Output() public videoChangedState = new EventEmitter();
 
     constructor(private route: ActivatedRoute){
 
@@ -28,6 +28,11 @@ export class VideoPlayerComponent implements OnInit {
 
     onStateChange(event){
         console.log('player state', event.data);
+        this.videoChangeState();
+    }
+
+    videoChangeState() {
+        this.videoChangedState.next(this.player);
     }
 
     toMoment(moment) {
