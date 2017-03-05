@@ -37,4 +37,25 @@ export class VideoService {
             return JSON.parse(data['_body']);
         });
     }
+
+    startWatchingVideo(videoId, userData) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        let body = {
+            sex: userData.sex
+        };
+        return this.http.post(`${this.apiName}/api/video/${videoId}/views`, body, options);
+    }
+
+    getAudience(videoId) {
+        return this.http.get(`${this.apiName}/api/video/${videoId}/views`).map(data => {
+            return JSON.parse(data['_body']);
+        });
+    }
+
+    getMoments(videoId) {
+        return this.http.get(`${this.apiName}/api/video/${videoId}/moments`).map(data => {
+            return JSON.parse(data['_body']);
+        });
+    }
 }
