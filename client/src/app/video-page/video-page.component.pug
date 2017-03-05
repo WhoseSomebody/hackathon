@@ -1,0 +1,41 @@
+.drop-menu
+  link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
+  nav.menu
+    input#menu-open.menu-open(type='checkbox', href='#', name='menu-open')
+    label.menu-open-button(for='menu-open')
+      span.hamburger.hamburger-1
+      span.hamburger.hamburger-2
+      span.hamburger.hamburger-3
+    a.menu-item(href='#')
+      i.fa.fa-bar-chart
+    a.menu-item(href='#')
+      i.fa.fa-puzzle-piece
+    a.menu-item(href='#')
+      i.fa.fa-star
+    a.menu-item(href='#')
+      i.fa.fa-hand-o-right
+      i.fa.fa-caret-square-o-right
+    a.menu-item(href='#')
+      i.fa.fa-comments
+  // filters
+  svg(xmlns='http://www.w3.org/2000/svg', version='1.1')
+    defs
+      filter#shadowed-goo
+        fegaussianblur(in='SourceGraphic', result='blur', stddeviation='10')
+          fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
+            fegaussianblur(in='goo', stddeviation='3', result='shadow')
+              fecolormatrix(in='shadow', mode='matrix', values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2', result='shadow')
+                feoffset(in='shadow', dx='1', dy='1', result='shadow')
+                  fecomposite(in2='shadow', in='goo', result='goo')
+                    fecomposite(in2='goo', in='SourceGraphic', result='mix')
+      filter#goo
+        fegaussianblur(in='SourceGraphic', result='blur', stddeviation='10')
+          fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
+            fecomposite(in2='goo', in='SourceGraphic', result='mix')
+
+video-player([videoId]="videoId")
+
+comments([videoId]="videoId").hidden
+rate([videoId]="videoId").hidden
+charts([videoId]="videoId").hidden
+
