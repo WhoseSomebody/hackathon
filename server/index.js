@@ -9,8 +9,13 @@ const LocalStrategy = require('passport-local').Strategy;
 const userSchema = require('./schemas/user');
 const mongoose = require('mongoose');
 const app = express()
+const options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+                  replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };
+mongoose.connect('mongodb://SerG:strelok1996@ds117830.mlab.com:17830/1plus1tv', options);
 
-mongoose.connect('mongodb://SerG:strelok1996@ds117830.mlab.com:17830/1plus1tv');
+const conn = mongoose.connection;
+
+conn.on('error', console.error.bind(console, 'connection error:'));
 
 const User = mongoose.model('user', userSchema);
 
