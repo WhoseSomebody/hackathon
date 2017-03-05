@@ -1,3 +1,4 @@
+import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
 import { VideoService } from './../../shared/video.service';
 import { Component, OnInit, Input } from '@angular/core';
 declare var Chart: any;
@@ -36,7 +37,6 @@ export class ChartsComponent implements OnInit {
 
     public audience = {
         labels: ['Чоловіки', 'Жінки', 'Гості'],
-        data: [100, 50, 30],
         options: {
             responsive: false,
             animation: {
@@ -79,9 +79,11 @@ export class ChartsComponent implements OnInit {
     constructor(private videoService: VideoService) { }
 
     ngOnInit() {
-        this.videoService.getVideoMarks(this.videoId).subscribe( marks => {
-            console.log(marks);
-            this.likes['data'] = [
+        IntervalObservable.create(1000).map(() => {
+            return this.videoService.getVideoMarks(this.videoId);
+        }).subscribe(marks$ => {
+            marks$.subscribe( marks => {
+                this.likes['data'] = [
                 {
                     data: [marks.likes],
                     label: 'Лайки'
@@ -91,6 +93,38 @@ export class ChartsComponent implements OnInit {
                     label: 'Дизлайки'
                 }
             ];
+            });
         });
+        // this.videoService.getVideoMarks(this.videoId).subscribe( marks => {
+        //     console.log(marks);
+        //     this.likes['data'] = [
+        //         {
+        //             data: [marks.likes],
+        //             label: 'Лайки'
+        //         },
+        //         {
+        //             data: [marks.dislikes],
+        //             label: 'Дизлайки'
+        //         }
+        //     ];
+        // });
+        IntervalObservable.create(1000).map(() => {
+            return this.videoService.getAudience(this.videoId);
+        }).subscribe(audience$ => {
+            audience$.subscribe( audience => {
+                this.audience['data'] = [
+                    audience.male,
+                    audience.female,
+                    audience.guest
+                ];
+            });
+        });
+        // this.videoService.getAudience(this.videoId).subscribe( audience => {
+        //     this.audience['data'] = [
+        //         audience.male,
+        //         audience.female,
+        //         audience.guest
+        //     ];
+        // });
      }
 }

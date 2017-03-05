@@ -23,9 +23,6 @@ export class CommentsComponent implements OnInit {
                 this.comments = comments;
             });
         });
-        // this.videoService.getComments(this.videoId).subscribe( comments => {
-        //     this.comments = comments;
-        // });
      }
 
     addComment(newComment) {
