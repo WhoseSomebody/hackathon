@@ -4,7 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
     selector: 'video-player',
-    templateUrl: 'video-player.component.html',
+    templateUrl: 'video-player.component.pug',
     styleUrls: ['video-player.component.styl']
 })
 export class VideoPlayerComponent implements OnInit {
@@ -21,7 +21,8 @@ export class VideoPlayerComponent implements OnInit {
 
     savePlayer (player) {
         this.player = player;
-        player.seekTo(10, false);
+        // player.seekTo(10, false);
+        player.stop();
         console.log('player instance', player)
     }
 
