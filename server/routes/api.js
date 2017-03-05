@@ -5,6 +5,7 @@ const categorySchema = require('../schemas/category');
 const commentSchema = require('../schemas/comment');
 const markSchema = require('../schemas/marks');
 const viewsSchema = require('../schemas/views');
+const momentSchema = require('../schemas/moments');
 
 const News = mongoose.model('news', categorySchema);
 const Fun = mongoose.model('fun', categorySchema);
@@ -15,29 +16,7 @@ const Family = mongoose.model('family', categorySchema);
 const Comment = mongoose.model('comment', commentSchema);
 const Mark = mongoose.model('mark', markSchema);
 const Views = mongoose.model('views', viewsSchema);
-
-
-router.get('/projects', (req, res) => {
-
-
-    const kitty = new Comment({
-        videoid: "1",
-        comments: [
-            {
-                userId: "1",
-                userName: "rdfdfg",
-                comment: "sdcdscdslkv kdf"
-            }
-        ]
-    });
-    kitty.save(function (err) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log('meow');
-        }
-    });
-});
+const Moment = mongoose.model('moment', momentSchema);
 
 router.get('/categories/:id', (req, res) => {
     const catId = req.params.id;
@@ -266,6 +245,47 @@ router.post('/video/:id/views', (req, res) => {
 router.get('/video/:id/views', (req, res) => {
     Views.findOne({videoid: req.params.id}, (err, views) => {
         res.json(views ? views : []);
+    })
+});
+
+router.post('/video/:id/moments', (req, res) => {
+
+    Moment.findOne({videoid: req.params.id}, (err, docs) => {
+        if (docs) {
+            Moment.update({videoid: req.params.id}, {
+                "$push": {
+                    moments: {
+                        title: req.body.title,
+                        time: req.body.time,
+                    }
+                }
+            }, {upsert: true, setDefaultsOnInsert: true}, (err, data) => {
+                res.json({success: "ok"});
+            });
+        } else {
+            const moment = new Moment({
+                videoid: req.params.id,
+                moments: {
+                    title: req.body.title,
+                    time: req.body.time,
+                }
+            });
+
+            moment.save(function (err) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.json({success: "ok create"});
+                }
+            });
+        }
+    });
+
+});
+
+router.get('/video/:id/moments', (req, res) => {
+    Moment.findOne({videoid: req.params.id}, (err, moment) => {
+        res.json(moment ? moment : []);
     })
 });
 
