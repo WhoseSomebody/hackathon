@@ -64,4 +64,10 @@ export class VideoService {
         let options = new RequestOptions({ headers: headers });
         return this.http.post(`${this.apiName}/api/video/${videoId}/moments`, moment, options);
     }
+
+    getRelatedVideos(videoId, subcategoryId) {
+        return this.http.get(`${this.apiName}/api/video/${videoId}/moments`).map(data => {
+            return JSON.parse(data['_body']);
+        });
+    }
 }

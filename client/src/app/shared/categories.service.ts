@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 @Injectable()
 export class CategoriesService {
 
+    currentSubCategory = '';
     constructor(@Inject('apiName') private apiName: string, private http: Http){
     }
 
