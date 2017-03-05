@@ -1,29 +1,32 @@
+import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
+import { VideoService } from './../../shared/video.service';
 import { AuthService } from './../../shared/auth.service';
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
 @Component({
     selector: 'comments',
     templateUrl: 'comments.component.html'
 })
 export class CommentsComponent implements OnInit {
     
-    private comments = [
-        {
-            userId: '123',
-            userName: 'Vasya',
-            comment: 'Comment1 fdsfsdfsdf'
-        },
-        {
-            userId: '123',
-            userName: 'Vasya',
-            comment: 'Comment1 fdsfsdfsdf'
-        }
-    ];
+    @Input() private videoId: string;
+
+    private comments;
     private newComment = '';
 
-    constructor(private authService: AuthService) { }
+    constructor(private authService: AuthService, private videoService: VideoService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        IntervalObservable.create(1000).map(() => {
+            return this.videoService.getComments(this.videoId);
+        }).subscribe(comments$ => {
+            comments$.subscribe( comments => {
+                this.comments = comments;
+            });
+        });
+        // this.videoService.getComments(this.videoId).subscribe( comments => {
+        //     this.comments = comments;
+        // });
+     }
 
     addComment(newComment) {
         let comment = {
@@ -31,6 +34,8 @@ export class CommentsComponent implements OnInit {
             userName: this.authService.userData.userName,
             comment: newComment
         }
-        this.comments.push(comment);
+        this.videoService.addComment(this.videoId, comment).subscribe(data => {
+            console.log("Added");
+        });
     }
 }

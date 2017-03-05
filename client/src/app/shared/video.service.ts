@@ -9,7 +9,7 @@ export class VideoService {
     }
 
     getComments(videoId){
-        return this.http.get(`${this.apiName}/api/${videoId}/comments`).map(data => {
+        return this.http.get(`${this.apiName}/api/video/${videoId}/comments`).map(data => {
             return JSON.parse(data['_body']);
         });
     }
@@ -17,6 +17,24 @@ export class VideoService {
     addComment(videoId, comment) {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.post(`${this.apiName}/api/${videoId}/comments`, comment, options);
+        return this.http.post(`${this.apiName}/api/video/${videoId}/comments`, comment, options);
+    }
+
+    addLike(videoId) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(`${this.apiName}/api/video/${videoId}/mark`, { like: true}, options);
+    }
+
+    addDislike(videoId) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(`${this.apiName}/api/video/${videoId}/mark`, {}, options);
+    }
+
+    getVideoMarks(videoId) {
+        return this.http.get(`${this.apiName}/api/video/${videoId}/mark`).map(data => {
+            return JSON.parse(data['_body']);
+        });
     }
 }

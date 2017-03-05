@@ -1,4 +1,4 @@
-<div style="display: block">
+<div *ngIf="likes.data" style="display: block">
     <canvas baseChart
             [datasets]="likes.data"
             [options]="likes.options"
