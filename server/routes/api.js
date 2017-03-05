@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const categorySchema = require('../schemas/category');
 const commentSchema = require('../schemas/comment');
 const markSchema = require('../schemas/marks');
-mongoose.connect('mongodb://SerG:strelok1996@ds117830.mlab.com:17830/1plus1tv');
+const viewsSchema = require('../schemas/views');
 
 const News = mongoose.model('news', categorySchema);
 const Fun = mongoose.model('fun', categorySchema);
@@ -14,6 +14,8 @@ const Family = mongoose.model('family', categorySchema);
 
 const Comment = mongoose.model('comment', commentSchema);
 const Mark = mongoose.model('mark', markSchema);
+const Views = mongoose.model('views', viewsSchema);
+
 
 router.get('/projects', (req, res) => {
 
@@ -210,6 +212,60 @@ router.post('/video/:id/mark', (req, res) => {
 router.get('/video/:id/mark', (req, res) => {
     Mark.findOne({videoid: req.params.id}, (err, mark) => {
         res.json(mark ? mark : []);
+    })
+});
+
+router.post('/video/:id/views', (req, res) => {
+
+    Views.findOne({videoid: req.params.id}, (err, views) => {
+        if(views) {
+            if(req.body.sex == "male") {
+                views.male++;
+            } else if(req.body.sex == "female") {
+                views.female++;
+            } else {
+                views.guest++;
+            }
+
+            views.views++;
+            views.save(err => {
+                if(err) {
+
+                } else {
+                    res.json(views);
+                }
+            });
+        } else {
+            views = new Views({
+                videoid: req.params.id,
+                male: 0,
+                female: 0,
+                guest: 0,
+                views: 0
+            });
+
+            if(req.body.sex == "male") {
+                views.male++;
+            } else if(req.body.sex == "female") {
+                views.female++;
+            } else {
+                views.guest++;
+            }
+            views.views++;
+            views.save(err => {
+                if(err) {
+
+                } else {
+                    res.json(views);
+                }
+            });
+        }
+    })
+});
+
+router.get('/video/:id/views', (req, res) => {
+    Views.findOne({videoid: req.params.id}, (err, views) => {
+        res.json(views ? views : []);
     })
 });
 
