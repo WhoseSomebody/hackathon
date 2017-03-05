@@ -25,6 +25,8 @@ export class RelatedVideosComponent implements OnInit {
     }
 
     onSelect(id){
-        this.router.navigate(['video', id]);
+        this.router.navigate(['category', '1']).then(() => {
+            this.router.navigate(['video', id]);
+        });
     }
 }

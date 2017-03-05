@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'rate',
-    templateUrl: 'rate.component.html',
+    templateUrl: 'rate.component.pug',
     styleUrls: ['rate.component.styl']
 })
 export class RateComponent implements OnInit {

@@ -4,7 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
 declare var Chart: any;
 @Component({
     selector: 'charts',
-    templateUrl: 'charts.component.html',
+    templateUrl: 'charts.component.pug',
     styleUrls: ['charts.component.styl']
 })
 export class ChartsComponent implements OnInit {

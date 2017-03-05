@@ -1,0 +1,11 @@
+link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
+.rate-container
+    div.rate(*ngIf="!rated")
+        button(md-fab (click) = "addLike()" title="Сподобалось").like
+            i.fa.fa-thumbs-up
+        button(md-fab (click)="addDislike()" title="Не сподобалось").dislike
+            i.fa.fa-thumbs-down
+
+    div.message(*ngIf="rated")
+        h3 Дякуємо за Ваш голос!
+

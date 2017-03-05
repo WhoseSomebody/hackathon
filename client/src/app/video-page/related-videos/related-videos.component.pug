@@ -1,5 +1,5 @@
 h2 Рекомендації:
 div.related-videos(*ngIf='relatedVideos')
-    div(*ngFor='let video of relatedVideos', (click)='onSelect(video.videoid)')
-        h2 {{video.title}}
+    div.item(*ngFor='let video of relatedVideos', (click)='onSelect(video.videoid)')
+        h3 {{video.title}}
         img([src]='video.image')

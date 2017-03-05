@@ -13,8 +13,6 @@
         a.menu-item((click)="activity='recommendations'" href="javascript:void(0)" title="Рекомендації")
             i.fa.fa-hand-o-right
             i.fa.fa-caret-square-o-right
-        a.menu-item((click)="activity='rates'" href="javascript:void(0)" title="Оцінити")
-            i.fa.fa-star
         a.menu-item((click)="activity='charts'" href="javascript:void(0)" title="Аналітика")
             i.fa.fa-bar-chart
 
@@ -38,9 +36,9 @@ div.last-comment
     span.name {{lastComment.userName}}:
     span.text   {{lastComment.comment}}
 add-moment.add-moment([videoId]="videoId")
+rate([videoId]="videoId")
 .right-menu()
     moments([videoId]="videoId" (momentSelected) = "momentSelected($event)" *ngIf="activity === 'moments'")
     comments([videoId]="videoId" *ngIf="activity === 'comments'" (commentAdded)="commentAdded($event)")
-    rate([videoId]="videoId" *ngIf="activity === 'rates'")
     charts([videoId]="videoId" *ngIf="activity === 'charts'")
     related-videos([videoId]="videoId" *ngIf="activity === 'recommendations'")

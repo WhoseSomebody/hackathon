@@ -1,0 +1,8 @@
+h2 Аналітика:
+.analytics
+    div.likes(*ngIf='likes.data', style='display: block')
+        .title Вподобання
+        canvas(baseChart='', width='350', height='250', [datasets]='likes.data', [options]='likes.options', [labels]='likes.labels', [chartType]="'bar'")
+    div.audit(*ngIf='audience.data', style='display: block')
+        .title Аудиторія
+        canvas(baseChart='', width='320', height='300', [data]='audience.data', [labels]='audience.labels', [chartType]="'pie'", [options]='audience.options')
