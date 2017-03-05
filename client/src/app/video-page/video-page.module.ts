@@ -1,3 +1,4 @@
+import { RateComponent } from './rate/rate.component';
 import { ChartsComponent } from './charts/charts.component';
 import { CommentsComponent } from './comments/comments.component';
 import { VideoPageComponent } from './video-page.component';
@@ -20,7 +21,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
         VideoPlayerComponent,
         VideoPageComponent,
         CommentsComponent,
-        ChartsComponent
+        ChartsComponent,
+        RateComponent
     ],
     providers: [],
 })

@@ -1,6 +1,8 @@
-<li *ngFor="let comment of comments">
-    {{comment.userName}}: {{comment.comment}}
-</li>
+<div *ngIf="comments">
+    <li *ngFor="let comment of comments">
+        {{comment.userName}}: {{comment.comment}}
+    </li>
 
-<input type="text" [value]="newComment" (input)="newComment = $event.target.value">
-<button (click)="addComment(newComment)">Додати коментар</button>
+    <input type="text" [value]="newComment" (input)="newComment = $event.target.value">
+    <button (click)="addComment(newComment)">Додати коментар</button>
+</div>

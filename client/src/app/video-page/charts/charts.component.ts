@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { VideoService } from './../../shared/video.service';
+import { Component, OnInit, Input } from '@angular/core';
 declare var Chart: any;
 @Component({
     selector: 'charts',
@@ -7,17 +8,9 @@ declare var Chart: any;
 })
 export class ChartsComponent implements OnInit {
     
+    @Input() private videoId: string;
+
     public likes = {
-        data: [
-            {
-                data: [10],
-                label: 'Лайки'
-            },
-            {
-                data: [5],
-                label: 'Дизлайки'
-            }
-        ],
         labels: [ 'Лайки/Дизлайки'],
         options: {
             responsive: false,
@@ -83,7 +76,21 @@ export class ChartsComponent implements OnInit {
         }
     };
 
-    constructor() { }
+    constructor(private videoService: VideoService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.videoService.getVideoMarks(this.videoId).subscribe( marks => {
+            console.log(marks);
+            this.likes['data'] = [
+                {
+                    data: [marks.likes],
+                    label: 'Лайки'
+                },
+                {
+                    data: [marks.dislikes],
+                    label: 'Дизлайки'
+                }
+            ];
+        });
+     }
 }
