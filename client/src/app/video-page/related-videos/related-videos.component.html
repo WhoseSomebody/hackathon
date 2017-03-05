@@ -1,0 +1,6 @@
+<div *ngIf="relatedVideos">
+    <div *ngFor="let video of relatedVideos" (click)="onSelect(video.id)">
+        <h2>{{video.title}}</h2>
+        <img [src]="video.image"/>
+    </div>
+</div>
