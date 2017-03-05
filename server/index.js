@@ -103,6 +103,10 @@ app.get('/loginSuccess', function(req, res, next) {
 
 app.use('/api', apiRouter);
 
+app.get('/*', function(req, res, next) {
+    res.sendFile(__dirname + '/public/index.html')
+});
+
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
     console.log("Listening on " + port);

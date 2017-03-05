@@ -289,4 +289,20 @@ router.get('/video/:id/moments', (req, res) => {
     })
 });
 
+router.get('/proposals/:id', (req, res) => {
+    const catId = req.params.id;
+
+    News.findOne({id: catId}, (err, news) => {
+        if (err) {
+            res.json(err)
+        }
+        if(news)
+            res.json(news.videolist);
+        else {
+            res.json([]);
+        }
+    });
+
+});
+
 module.exports = router;
