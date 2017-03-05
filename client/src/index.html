@@ -54,6 +54,526 @@
   <style>
     body {
       background-color: #333;
+      position: relative;
+    }
+    content{
+      position: absolute;
+      left: 50%;
+      transform: translate(-68%, -50%);
+      width: 400px;
+      margin-top: 253px;
+    }
+    .sector {
+      position: absolute;
+      height: 50px;
+      width: 50px;
+      margin-left: 250px;
+      border-radius: 0 100% 0 0;
+      transform-origin: bottom left;
+      transition: transform 1s;
+      transition-timing-function: cubic-bezier(0, 0.03, 0, 1.65);
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+
+    #bl6:after,
+    #bl5:after,
+    #bl4:after,
+    #bl3:after,
+    #bl1:after {
+      position: absolute;
+      content: "";
+      font-size: 30px;
+      z-index: 100;
+      height: 5px;
+      width: 5px;
+      margin: 25px 0px 0px 22px;
+      transform: rotate(-30deg);
+      display: block;
+      border-radius: 100% 100% 100% 100%;
+      animation: background-change 2s infinite;
+      animation-delay: 0.6s;
+    }
+
+    .sector:before {
+      content: "";
+      width: 30px;
+      height: 30px;
+      background: #333;
+      display: block;
+      border-radius: 0 100% 0 0;
+      margin: 21px -1px 1px -1px;
+      z-index: 100;
+    }
+
+    content:hover #bl1 {
+      transform: rotate(280deg);
+    }
+
+    content:hover #bl2 {
+      transform: rotate(290deg);
+    }
+
+    content:hover #bl3 {
+      transform: rotate(310deg);
+    }
+
+    content:hover #bl4 {
+      transform: rotate(350deg);
+    }
+
+    content:hover #bl5 {
+      transform: rotate(390deg);
+    }
+
+    content:hover #bl6 {
+      transform: rotate(470deg);
+    }
+
+    #bl1 {
+      transform: rotate(-80deg);
+      background: #ff9580;
+      z-index: 11;
+      transition-delay: 0.32s;
+      animation-delay: 0.32s;
+      animation-name: rotation1;
+    }
+
+    #bl2 {
+      transform: rotate(-70deg);
+      background: #ffaa80;
+      z-index: 12;
+      transition-delay: 0s;
+      animation-delay: 0s;
+      animation-name: rotation2;
+    }
+
+    #bl3 {
+      transform: rotate(-50deg);
+      background: #ffd480;
+      z-index: 13;
+      transition-delay: 0.3s;
+      animation-delay: 0.3s;
+      animation-name: rotation3;
+    }
+
+    #bl4 {
+      transform: rotate(-10deg);
+      background: #eaff80;
+      z-index: 14;
+      transition-delay: 0.7s;
+      animation-delay: 0.7s;
+      animation-name: rotation4;
+    }
+
+    #bl5 {
+      transform: rotate(30deg);
+      background: #80ff80;
+      z-index: 15;
+      transition-delay: 0.05s;
+      animation-delay: 0.05s;
+      animation-name: rotation5;
+    }
+
+    #bl6 {
+      transform: rotate(110deg);
+      background: #80d4ff;
+      z-index: 16;
+      transition-delay: 0.6s;
+      animation-delay: 0.6s;
+      animation-name: rotation6;
+    }
+
+    @-moz-keyframes rotation1 {
+      from {
+        transform: rotate(-80deg);
+      }
+
+      to {
+        transform: rotate(280deg);
+      }
+    }
+
+    @-webkit-keyframes rotation1 {
+      from {
+        transform: rotate(-80deg);
+      }
+
+      to {
+        transform: rotate(280deg);
+      }
+    }
+
+    @-o-keyframes rotation1 {
+      from {
+        transform: rotate(-80deg);
+      }
+
+      to {
+        transform: rotate(280deg);
+      }
+    }
+
+    @keyframes rotation1 {
+      from {
+        transform: rotate(-80deg);
+      }
+
+      to {
+        transform: rotate(280deg);
+      }
+    }
+
+    @-moz-keyframes rotation2 {
+      from {
+        transform: rotate(-70deg);
+      }
+
+      to {
+        transform: rotate(290deg);
+      }
+    }
+
+    @-webkit-keyframes rotation2 {
+      from {
+        transform: rotate(-70deg);
+      }
+
+      to {
+        transform: rotate(290deg);
+      }
+    }
+
+    @-o-keyframes rotation2 {
+      from {
+        transform: rotate(-70deg);
+      }
+
+      to {
+        transform: rotate(290deg);
+      }
+    }
+
+    @keyframes rotation2 {
+      from {
+        transform: rotate(-70deg);
+      }
+
+      to {
+        transform: rotate(290deg);
+      }
+    }
+
+    @-moz-keyframes rotation3 {
+      from {
+        transform: rotate(-50deg);
+      }
+
+      to {
+        transform: rotate(310deg);
+      }
+    }
+
+    @-webkit-keyframes rotation3 {
+      from {
+        transform: rotate(-50deg);
+      }
+
+      to {
+        transform: rotate(310deg);
+      }
+    }
+
+    @-o-keyframes rotation3 {
+      from {
+        transform: rotate(-50deg);
+      }
+
+      to {
+        transform: rotate(310deg);
+      }
+    }
+
+    @keyframes rotation3 {
+      from {
+        transform: rotate(-50deg);
+      }
+
+      to {
+        transform: rotate(310deg);
+      }
+    }
+
+    @-moz-keyframes rotation4 {
+      from {
+        transform: rotate(-10deg);
+      }
+
+      to {
+        transform: rotate(350deg);
+      }
+    }
+
+    @-webkit-keyframes rotation4 {
+      from {
+        transform: rotate(-10deg);
+      }
+
+      to {
+        transform: rotate(350deg);
+      }
+    }
+
+    @-o-keyframes rotation4 {
+      from {
+        transform: rotate(-10deg);
+      }
+
+      to {
+        transform: rotate(350deg);
+      }
+    }
+
+    @keyframes rotation4 {
+      from {
+        transform: rotate(-10deg);
+      }
+
+      to {
+        transform: rotate(350deg);
+      }
+    }
+
+    @-moz-keyframes rotation5 {
+      from {
+        transform: rotate(30deg);
+      }
+
+      to {
+        transform: rotate(390deg);
+      }
+    }
+
+    @-webkit-keyframes rotation5 {
+      from {
+        transform: rotate(30deg);
+      }
+
+      to {
+        transform: rotate(390deg);
+      }
+    }
+
+    @-o-keyframes rotation5 {
+      from {
+        transform: rotate(30deg);
+      }
+
+      to {
+        transform: rotate(390deg);
+      }
+    }
+
+    @keyframes rotation5 {
+      from {
+        transform: rotate(30deg);
+      }
+
+      to {
+        transform: rotate(390deg);
+      }
+    }
+
+    @-moz-keyframes rotation6 {
+      from {
+        transform: rotate(110deg);
+      }
+
+      to {
+        transform: rotate(470deg);
+      }
+    }
+
+    @-webkit-keyframes rotation6 {
+      from {
+        transform: rotate(110deg);
+      }
+
+      to {
+        transform: rotate(470deg);
+      }
+    }
+
+    @-o-keyframes rotation6 {
+      from {
+        transform: rotate(110deg);
+      }
+
+      to {
+        transform: rotate(470deg);
+      }
+    }
+
+    @keyframes rotation6 {
+      from {
+        transform: rotate(110deg);
+      }
+
+      to {
+        transform: rotate(470deg);
+      }
+    }
+
+    @-moz-keyframes background-change {
+      0% {
+        background: #ff9580;
+      }
+
+      10% {
+        background: #ffaa80;
+      }
+
+      20% {
+        background: #ffd480;
+      }
+
+      30% {
+        background: #eaff80;
+      }
+
+      40% {
+        background: #80ff80;
+      }
+
+      50% {
+        background: #80d4ff;
+      }
+
+      70% {
+        background: #aa80ff;
+      }
+
+      90% {
+        background: #ff80ea;
+      }
+
+      100% {
+        background: #ff8080;
+      }
+    }
+
+    @-webkit-keyframes background-change {
+      0% {
+        background: #ff9580;
+      }
+
+      10% {
+        background: #ffaa80;
+      }
+
+      20% {
+        background: #ffd480;
+      }
+
+      30% {
+        background: #eaff80;
+      }
+
+      40% {
+        background: #80ff80;
+      }
+
+      50% {
+        background: #80d4ff;
+      }
+
+      70% {
+        background: #aa80ff;
+      }
+
+      90% {
+        background: #ff80ea;
+      }
+
+      100% {
+        background: #ff8080;
+      }
+    }
+
+    @-o-keyframes background-change {
+      0% {
+        background: #ff9580;
+      }
+
+      10% {
+        background: #ffaa80;
+      }
+
+      20% {
+        background: #ffd480;
+      }
+
+      30% {
+        background: #eaff80;
+      }
+
+      40% {
+        background: #80ff80;
+      }
+
+      50% {
+        background: #80d4ff;
+      }
+
+      70% {
+        background: #aa80ff;
+      }
+
+      90% {
+        background: #ff80ea;
+      }
+
+      100% {
+        background: #ff8080;
+      }
+    }
+
+    @keyframes background-change {
+      0% {
+        background: #ff9580;
+      }
+
+      10% {
+        background: #ffaa80;
+      }
+
+      20% {
+        background: #ffd480;
+      }
+
+      30% {
+        background: #eaff80;
+      }
+
+      40% {
+        background: #80ff80;
+      }
+
+      50% {
+        background: #80d4ff;
+      }
+
+      70% {
+        background: #aa80ff;
+      }
+
+      90% {
+        background: #ff80ea;
+      }
+
+      100% {
+        background: #ff8080;
+      }
     }
   </style>
 </head>
@@ -61,7 +581,14 @@
 <body>
 
   <app>
-    Loading...
+    <content>
+      <div id="bl1" class="sector"></div>
+      <div id="bl2" class="sector"></div>
+      <div id="bl3" class="sector"></div>
+      <div id="bl4" class="sector"></div>
+      <div id="bl5" class="sector"></div>
+      <div id="bl6" class="sector"></div>
+    </content>
   </app>
 
 
