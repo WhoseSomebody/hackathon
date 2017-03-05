@@ -52,4 +52,16 @@ export class VideoService {
             return JSON.parse(data['_body']);
         });
     }
+
+    getMoments(videoId) {
+        return this.http.get(`${this.apiName}/api/video/${videoId}/moments`).map(data => {
+            return JSON.parse(data['_body']);
+        });
+    }
+    
+    addMoment(videoId, moment) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(`${this.apiName}/api/video/${videoId}/moments`, moment, options);
+    }
 }

@@ -1,0 +1,3 @@
+<div *ngIf="moments">
+    <li *ngFor="let moment of moments" (click)="onMomentSelect(moment)">{{moment.title}} : {{moment.time}}</li>
+</div>

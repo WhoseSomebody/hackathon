@@ -17,7 +17,41 @@
   <!-- base url -->
   <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-  <script src="https://use.fontawesome.com/460b3738bc.js"></script>
+  <style type="text/css">
+    ::-webkit-scrollbar {
+      width: 1px;
+      height: 1px;
+    }
+    ::-webkit-scrollbar-button {
+      width: 0px;
+      height: 0px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #e1e1e1;
+      border: 0px none #ffffff;
+      border-radius: 50px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffffff;
+    }
+    ::-webkit-scrollbar-thumb:active {
+      background: #919191;
+    }
+    ::-webkit-scrollbar-track {
+      background: #666666;
+      border: 0px none #ffffff;
+      border-radius: 1px;
+    }
+    ::-webkit-scrollbar-track:hover {
+      background: #666666;
+    }
+    ::-webkit-scrollbar-track:active {
+      background: #6f6d6d;
+    }
+    ::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+  </style>
   <style>
     body {
       background-color: #333;
