@@ -1,5 +1,8 @@
 # hoopla-yolo-crew int20h task
 
+https://vk.com/yolo.crew 
+https://vk.com/int20h2017
+
 The application stands for making wathing online 1+1 TV more interactive and modern.
 stack
 - Node.js Express;
