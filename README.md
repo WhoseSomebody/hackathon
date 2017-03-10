@@ -2,7 +2,7 @@
 
 to-do
 
-1. users can leave tags for videos
+1. users can leave tags for videos ++
 
 
 to-do for 1plus1 API
