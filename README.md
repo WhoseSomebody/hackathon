@@ -1,7 +1,7 @@
 # hoopla-yolo-crew int20h task
 
-https://vk.com/yolo.crew 
-https://vk.com/int20h2017
+- https://vk.com/yolo.crew - command public page
+- https://vk.com/int20h2017 - hakathon public page
 
 The application stands for making wathing online 1+1 TV more interactive and modern.
 stack
